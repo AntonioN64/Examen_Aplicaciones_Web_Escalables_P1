@@ -1,0 +1,9 @@
+Para este avance utilicé Claude para entender cómo enviar un dato del componente hijo al padre, ya que en clase solo vimos eventos que no transmitían ningún valor.
+
+Investigué que, en lugar de output<void>(), se puede indicar el tipo de dato que se quiere enviar. Como necesitaba mandar el id del usuario, en la tarjeta lo declaré como output<number>().
+
+Para enviar ese valor hay que incluirlo dentro del método emit. Así, al presionar el botón de eliminar, la tarjeta envía el id del usuario correspondiente.
+
+En el componente padre, el dato se recibe mediante la variable $event. Desde el HTML principal se lo paso a la función encargada de eliminar al usuario, que usa update junto con un filter para quitarlo de la lista.
+
+El contador y el mensaje de directorio vacío los resolví con lo visto en clase. El contador es una señal computed que se actualiza automáticamente cada vez que se elimina un usuario. Para el mensaje utilicé @empty dentro del @for, porque resulta más directo que agregar un @if por separado.
